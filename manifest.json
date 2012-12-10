@@ -1,0 +1,15 @@
+{
+  "name": "topScroll",
+  "version": "0.1",
+  "manifest_version": 2,
+  "description": "Click on left border of page for scroll to top.",
+  "permissions": ["tabs", "http://*/*", "https://*/*"],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "exclude_matches": ["http://vk.com/*"],
+      "css": ["basic.css"],
+      "js": ["contentscript.js"]
+    }
+  ]
+}
