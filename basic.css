@@ -1,0 +1,11 @@
+#topscroll-chrome-extension-bar {
+  position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	margin: 0;
+	padding: 0;
+	width: 1px;
+	height: 100%;
+	z-index: 9000;
+}
