@@ -3,6 +3,7 @@
   "version": "0.1",
   "manifest_version": 2,
   "description": "Click on left border of page for scroll to top.",
+  "homepage_url": "https://github.com/Dexterity/topscroll",
   "permissions": ["tabs", "http://*/*", "https://*/*"],
   "content_scripts": [
     {
