@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "TopScroll",
+    "description": "The title of the application, displayed in the web store."
+  },
+  "appDesc": {
+    "message": "Click on left border of page for scroll to top.", 
+    "description": "The description of the application, displayed in the web store."
+  }
+}

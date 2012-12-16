@@ -1,8 +1,9 @@
 {
-  "name": "topScroll",
-  "version": "0.1",
+  "name": "__MSG_appName__",  
+  "description": "__MSG_appDesc__",
+  "default_locale": "en",
+  "version": "0.2",
   "manifest_version": 2,
-  "description": "Click on left border of page for scroll to top.",
   "homepage_url": "https://github.com/Dexterity/topscroll",
   "permissions": ["tabs", "http://*/*", "https://*/*"],
   "content_scripts": [
