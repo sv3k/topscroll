@@ -4,7 +4,7 @@
     "description": "The title of the application, displayed in the web store."
   },
   "appDesc": {
-    "message": "Click on left border of page for scroll to top.", 
+    "message": "Click on the left border of a page for scroll to the top.", 
     "description": "The description of the application, displayed in the web store."
   }
 }
