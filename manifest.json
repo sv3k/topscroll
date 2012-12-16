@@ -1,8 +1,8 @@
 {
-  "name": "__MSG_appName__",  
+  "name": "__MSG_appName__",
   "description": "__MSG_appDesc__",
   "default_locale": "en",
-  "version": "0.2",
+  "version": "0.2.1",
   "manifest_version": 2,
   "homepage_url": "https://github.com/Dexterity/topscroll",
   "permissions": ["tabs", "http://*/*", "https://*/*"],
