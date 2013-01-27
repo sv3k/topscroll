@@ -2,10 +2,10 @@
   "name": "__MSG_appName__",
   "description": "__MSG_appDesc__",
   "default_locale": "en",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "manifest_version": 2,
   "homepage_url": "https://github.com/Dexterity/topscroll",
-  "permissions": ["tabs", "http://*/*", "https://*/*", "file://*/*", "ftp://*/*"],
+  "permissions": ["http://*/*", "https://*/*", "file://*/*", "ftp://*/*"],
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*", "file://*/*", "ftp://*/*"],
