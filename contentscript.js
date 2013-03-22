@@ -1,6 +1,6 @@
 function injectDiv() 
 { 
-  var body = document.getElementsByTagName('body')[0];
+	var body = document.getElementsByTagName('body')[0];
 	var div = document.createElement('div');
 
 	var barId = document.createAttribute("id");
@@ -13,7 +13,7 @@ function injectDiv()
 
 function topScroll()
 {
-    document.getElementsByTagName("body")[0].scrollTop = 0;
+	document.getElementsByTagName("body")[0].scrollTop = 0;
 }
 
 injectDiv();
