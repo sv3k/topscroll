@@ -13,7 +13,13 @@ function injectDiv()
 
 function topScroll()
 {
-	document.getElementsByTagName("body")[0].scrollTop = 0;
+	if (document.getElementsByTagName("body")[0].scrollTop === 0) {
+		document.getElementsByTagName("body")[0].scrollTop = window.last_scroll_position;
+		window.last_scroll_position = 0;
+	} else {
+		window.last_scroll_position = window.pageYOffset;
+        	document.getElementsByTagName("body")[0].scrollTop = 0;
+	}
 }
 
 injectDiv();
