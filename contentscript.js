@@ -18,7 +18,7 @@ function topScroll()
 		window.last_scroll_position = 0;
 	} else {
 		window.last_scroll_position = window.pageYOffset;
-        	document.getElementsByTagName("body")[0].scrollTop = 0;
+        document.getElementsByTagName("body")[0].scrollTop = 0;
 	}
 }
 

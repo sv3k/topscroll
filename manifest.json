@@ -3,14 +3,18 @@
   "description": "__MSG_appDesc__",
   "icons": { "48": "icon48.png", "128": "icon128.png" },
   "default_locale": "en",
-  "version": "0.2.6",
+  "version": "1.0.0",
   "manifest_version": 2,
   "homepage_url": "https://github.com/Dexterity/topscroll",
   "permissions": ["http://*/*", "https://*/*", "ftp://*/*"],
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*", "ftp://*/*"],
-      "exclude_matches": ["http://vk.com/*", "http://habrahabr.ru/*", "http://sprashivai.ru/*"],
+      "exclude_matches": [
+        "*://vk.com/*", 
+        "*://habrahabr.ru/*", 
+        "*://pikabu.ru/*"
+      ],
       "css": ["basic.css"],
       "js": ["contentscript.js"]
     }
