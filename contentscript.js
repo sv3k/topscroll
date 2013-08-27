@@ -5,10 +5,10 @@ function topScroll(event)
 	}
 
 	if (window.pageYOffset === 0) {
-		window.scrollTo(window.pageXOffset, window.last_scroll_position);
-		window.last_scroll_position = 0;
+		window.scrollTo(window.pageXOffset, window.lastScrollPosition);
+		window.lastScrollPosition = 0;
 	} else {
-		window.last_scroll_position = window.pageYOffset;
+		window.lastScrollPosition = window.pageYOffset;
 		window.scrollTo(window.pageXOffset, 0);
 	}
 }
