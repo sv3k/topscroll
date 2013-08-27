@@ -1,25 +1,16 @@
-function injectDiv() 
-{ 
-	var body = document.getElementsByTagName('body')[0];
-	var div = document.createElement('div');
-
-	var barId = document.createAttribute("id");
-	barId.value="topscroll-chrome-extension-bar";
-	div.setAttributeNode(barId);
-	div.onclick = topScroll; 
-
-	body.appendChild(div);
-}
-
-function topScroll()
+function topScroll(event)
 {
-	if (document.getElementsByTagName("body")[0].scrollTop === 0) {
-		document.getElementsByTagName("body")[0].scrollTop = window.last_scroll_position;
+	if (event.clientX != 0) {
+		return;
+	}
+
+	if (window.pageYOffset === 0) {
+		window.scrollTo(window.pageXOffset, window.last_scroll_position);
 		window.last_scroll_position = 0;
 	} else {
 		window.last_scroll_position = window.pageYOffset;
-        document.getElementsByTagName("body")[0].scrollTop = 0;
+		window.scrollTo(window.pageXOffset, 0);
 	}
 }
 
-injectDiv();
+document.onclick = topScroll;
