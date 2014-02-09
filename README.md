@@ -1,4 +1,4 @@
-topScroll - chrome extension
+TopScroll - chrome extension
 =========
 
 Click on the left border of a page for scroll to the top.
