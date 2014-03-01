@@ -10,7 +10,8 @@ There are already a number of extensions for Chrome, which can add the "scroll t
 
 Also, after scrolling to the top you can return to previous position on the page just by clicking on the edge one more time.
 
-This extension does not affect the appearance or source code of web pages. 
+This extension adds 1-pixel-width invicible div to the left edge of a web page.
+This extension does not affect the appearance of web pages. 
 This extension is useless if browser window is not fullscreen.
 This extension may not work on some sites with non-standart scrolling implementation.
 This extension is open-source.
