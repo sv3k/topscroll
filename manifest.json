@@ -4,7 +4,7 @@
   "description": "__MSG_appDesc__",
   "icons": { "48": "icon48.png", "128": "icon128.png" },
   "default_locale": "en",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "manifest_version": 2,
   "homepage_url": "https://github.com/Dexterity/topscroll",
   "permissions": ["http://*/*", "https://*/*", "ftp://*/*"],
