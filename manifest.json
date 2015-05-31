@@ -6,14 +6,16 @@
   "default_locale": "en",
   "version": "1.2.2",
   "manifest_version": 2,
+  "offline_enabled": true,
+  "author": "Anton Gorbunov",
   "homepage_url": "https://github.com/Dexterity/topscroll",
   "permissions": ["http://*/*", "https://*/*", "ftp://*/*"],
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*", "ftp://*/*"],
       "exclude_matches": [
-        "*://vk.com/*", 
-        "*://habrahabr.ru/*", 
+        "*://vk.com/*",
+        "*://habrahabr.ru/*",
         "*://pikabu.ru/*"
       ],
       "css": ["basic.css"],
