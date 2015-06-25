@@ -1,9 +1,6 @@
-TopScroll - chrome extension
-=========
+# TopScroll - chrome extension
 
-Click on the left border of a page for scroll to the top.
-https://chrome.google.com/webstore/detail/topscroll/hnninpkmflibadgihijdmlilikhdgajj
-
+### Description
 ★ Click on the left border of any page for scroll to the top. Just move a cursor to the screen left edge, click - and you're there!  
 ★ Click again - and you're back where stopped reading.  
 ★ Or right click for scroll to the bottom.
@@ -14,3 +11,10 @@ This extension adds 1-pixel-width invisible div to the left edge of a web page.
 This extension does not affect the appearance of web pages.  
 This extension is useless if browser window is not fullscreen.  
 This extension may not work on some sites with nonstandard scrolling implementation.
+
+### Install
+Chrome web store:  
+https://chrome.google.com/webstore/detail/topscroll/hnninpkmflibadgihijdmlilikhdgajj
+
+### License
+This project is licensed under the terms of the GNU v2 license.
