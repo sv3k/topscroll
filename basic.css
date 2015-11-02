@@ -1,11 +1,14 @@
 #topscroll-chrome-extension-bar {
-  position: fixed;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	margin: 0;
-	padding: 0;
-	width: 1px;
-	height: 100%;
-	z-index: 9000;
+	position: fixed !important;
+	top: 0 !important;
+	left: 0 !important;
+	bottom: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	width: 1px !important;
+	height: 100% !important;
+	border-style: none !important;
+	box-shadow: none !important;
+	opacity: 0 !important;
+	z-index: 100500 !important;
 }
