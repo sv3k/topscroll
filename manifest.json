@@ -9,10 +9,10 @@
   "offline_enabled": true,
   "author": "Anton Gorbunov",
   "homepage_url": "https://github.com/Dexterity/topscroll",
-  "permissions": ["http://*/*", "https://*/*", "ftp://*/*"],
+  "permissions": ["http://*/*", "https://*/*", "ftp://*/*", "file://*/*"],
   "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*", "ftp://*/*"],
+      "matches": ["http://*/*", "https://*/*", "ftp://*/*", "file://*/*"],
       "exclude_matches": [
         "*://vk.com/*",
         "*://habrahabr.ru/*",
