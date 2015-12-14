@@ -8,7 +8,7 @@
   "manifest_version": 2,
   "offline_enabled": true,
   "author": "Anton Gorbunov",
-  "homepage_url": "https://github.com/Dexterity/topscroll",
+  "homepage_url": "https://github.com/sv3k/topscroll",
   "permissions": ["http://*/*", "https://*/*", "ftp://*/*"],
   "content_scripts": [
     {
