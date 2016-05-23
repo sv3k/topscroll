@@ -22,16 +22,16 @@ topScroll = {
 	},
 
 	scrollDown: function() {
-		var height = document.body.clientHeight - window.innerHeight;
-		if (window.pageYOffset === height) {
+		var bottomOffset = document.documentElement.scrollHeight - window.innerHeight;
+		if (window.pageYOffset === bottomOffset) {
 			window.scrollTo(window.pageXOffset, topScroll.lastScrollPosition);
-			topScroll.lastScrollPosition = height;
+			topScroll.lastScrollPosition = bottomOffset;
 		} else {
 			topScroll.lastScrollPosition = window.pageYOffset;
-			window.scrollTo(window.pageXOffset, height);
+			window.scrollTo(window.pageXOffset, bottomOffset);
 		}
 		return false; // Prevent context menu appearing
 	}
 };
- 	
+
 topScroll.injectDiv();
