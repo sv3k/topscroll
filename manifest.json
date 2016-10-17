@@ -13,11 +13,6 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "exclude_matches": [
-        "*://vk.com/*",
-        "*://habrahabr.ru/*",
-        "*://pikabu.ru/*"
-      ],
       "css": ["basic.css"],
       "js": ["contentscript.js"]
     }
