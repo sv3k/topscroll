@@ -9,7 +9,7 @@
   "offline_enabled": true,
   "author": "Anton Gorbunov",
   "homepage_url": "https://github.com/sv3k/topscroll",
-  "permissions": ["http://*/*", "https://*/*", "ftp://*/*"],
+  "permissions": ["<all_urls>"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
