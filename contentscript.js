@@ -1,5 +1,7 @@
 topScroll = {
 
+	smoothDuration: 150, // Milliseconds
+
 	injectDiv: function() {
 		var body = document.getElementsByTagName('body')[0];
 		var div = document.createElement('div');
@@ -14,7 +16,6 @@ topScroll = {
 	scrollUp: function() {
 		if (topScroll.target.getPosition() === 0) {
 			topScroll.scrollTo(topScroll.lastPosition);
-			topScroll.lastPosition = 0;
 		} else {
 			topScroll.lastPosition = topScroll.target.getPosition();
 			topScroll.scrollTo(0);
@@ -25,7 +26,6 @@ topScroll = {
 		var bottomPosition = topScroll.target.getBottomPosition();
 		if (topScroll.target.getPosition() === bottomPosition) {
 			topScroll.scrollTo(topScroll.lastPosition);
-			topScroll.lastPosition = bottomPosition;
 		} else {
 			topScroll.lastPosition = topScroll.target.getPosition();
 			topScroll.scrollTo(bottomPosition);
@@ -34,17 +34,17 @@ topScroll = {
 	},
 
 	scrollTo: function(endY) {
-		var duration = 150;
 		var startY = topScroll.target.getPosition();
-		var distance = Math.max(endY,0) - startY;
+		var distance = endY - startY;
 		var startTime = new Date().getTime();
 		(function smoothScroll() {
 			setTimeout(function () {
-				var p = Math.min((new Date().getTime() - startTime) / duration, 1); // Progress 0→1
-				var y = Math.max(Math.floor(startY + distance*(p < 0.5 ? 2*p*p : p*(4 - p*2)-1)), 0);
-				topScroll.target.setPosition(y);
-				if (p < 1) {
+				var progress = (new Date().getTime() - startTime) / topScroll.smoothDuration; // Progress 0→1
+				if (progress <= 1) {
+					topScroll.target.setPosition(startY + distance * progress);
 					smoothScroll();
+				} else {
+					topScroll.target.setPosition(startY + distance);
 				}
 			}, 1)
 		})();
