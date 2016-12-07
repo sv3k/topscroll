@@ -1,5 +1,8 @@
 {
   "appDesc": {
     "message": "Click on the left border of any page for scroll to the top."
+  },
+  "browserAction": {
+    "message": "Scroll to the top or return"
   }
 }
