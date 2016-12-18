@@ -1,16 +1,25 @@
 topScroll = {
 
 	smoothDuration: 150, // Milliseconds
+	injectedName: "topscroll-chrome-extension-bar", // Id value for the injected div
 
-	injectDiv: function() {
+	inject: function() {
+		topScroll.remove(); // Cleanup
 		var body = document.getElementsByTagName('body')[0];
 		var div = document.createElement('div');
 		var barId = document.createAttribute('id');
-		barId.value = "topscroll-chrome-extension-bar";
+		barId.value = topScroll.injectedName;
 		div.setAttributeNode(barId);
 		div.onclick = topScroll.scrollUp;
 		div.oncontextmenu = topScroll.scrollDown;
 		body.appendChild(div);
+	},
+
+	remove: function() {
+		var div = document.getElementById(topScroll.injectedName);
+		if (div) {
+			div.remove();
+		}
 	},
 
 	scrollUp: function() {
@@ -111,4 +120,4 @@ topScroll = {
 	}
 };
 
-topScroll.injectDiv();
+topScroll.inject();
