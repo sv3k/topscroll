@@ -69,38 +69,38 @@ topScroll = {
 
 	target: { // Undefined target state by default
 
-		findTarget: () => {
+		findTarget: function() {
 			// Let's define target DOM element for scrolling
 			if (window.innerHeight === document.documentElement.scrollHeight) {
 				// Workaround for unscrollable root element, see #2
 				topScroll.target = {
 					div: topScroll.target.findBiggestDiv(),
-					getPosition: () => {
+					getPosition: function() {
 						return this.div.scrollTop;
 					},
-					getBottomPosition: () => {
+					getBottomPosition: function() {
 						return this.div.scrollHeight - this.div.clientHeight;
 					},
-					setPosition: y => {
+					setPosition: function(y) {
 						this.div.scrollTop = y;
 					}
 				};
 			} else {
 				topScroll.target = {
-					getPosition: () => {
+					getPosition: function() {
 						return window.pageYOffset;
 					},
-					getBottomPosition: () => {
+					getBottomPosition: function() {
 						return document.documentElement.scrollHeight - window.innerHeight;
 					},
-					setPosition: y => {
+					setPosition: function(y) {
 						window.scrollTo(window.pageXOffset, y);
 					}
 				};
 			}
 		},
 
-		findBiggestDiv: () => {
+		findBiggestDiv: function() {
 			var items = document.getElementsByTagName('div');
 			var biggest = { scrollHeight: 0 };
 			for (var i = 0; i < items.length; i++) {
@@ -111,17 +111,17 @@ topScroll = {
 			return biggest;
 		},
 
-		getPosition: () => {
+		getPosition: function() {
 			topScroll.target.findTarget();
 			return topScroll.target.getPosition();
 		},
 
-		getBottomPosition: () => {
+		getBottomPosition: function() {
 			topScroll.target.findTarget();
 			return topScroll.target.getBottomPosition();
 		},
 
-		setPosition: y => {
+		setPosition: function(y) {
 			topScroll.target.findTarget();
 			topScroll.target.setPosition(y);
 		}
