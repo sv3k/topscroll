@@ -4,5 +4,23 @@
   },
   "browserAction": {
     "message": "Scroll to the top or return"
+  },
+  "savedMsg": {
+    "message": "Saved"
+  },
+  "panelSizeTitle": {
+    "message": "Choose the panel size:"
+  },
+  "panelSize1": {
+    "message": "Tiny"
+  },
+  "panelSize1Desc": {
+    "message": "1 pixel width"
+  },
+  "panelSize2": {
+    "message": "Small"
+  },
+  "panelSize2Desc": {
+    "message": "10 pixels width"
   }
 }

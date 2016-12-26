@@ -5,10 +5,17 @@
 	bottom: 0 !important;
 	margin: 0 !important;
 	padding: 0 !important;
-	width: 1px !important;
 	height: 100% !important;
 	border-style: none !important;
 	box-shadow: none !important;
 	opacity: 0 !important;
 	z-index: 9999999999 !important;
+}
+
+.topscroll-chrome-extension-bar-1 {
+	width: 1px !important;
+}
+
+.topscroll-chrome-extension-bar-2 {
+	width: 10px !important;
 }

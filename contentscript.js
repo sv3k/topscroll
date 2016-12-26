@@ -5,12 +5,22 @@ topScroll = {
 
 	inject: () => {
 		topScroll.remove(); // Cleanup
-		var body = document.getElementsByTagName('body')[0];
-		var div = document.createElement('div');
-		div.id = topScroll.injectedName;
-		div.onclick = topScroll.scrollUp;
-		div.oncontextmenu = topScroll.scrollDown;
-		body.appendChild(div);
+		chrome.storage.sync.get({ panelType: 1 }, options => {
+			var body = document.getElementsByTagName('body')[0];
+			var div = document.createElement('div');
+			div.id = topScroll.injectedName;
+			div.className = topScroll.injectedName + '-' + options.panelType;
+			div.onclick = topScroll.scrollUp;
+			div.oncontextmenu = topScroll.scrollDown;
+			body.appendChild(div);
+
+			chrome.storage.onChanged.addListener(changes => {
+				var change = changes['panelType'];
+				if (change.oldValue != change.newValue) {
+					div.className = topScroll.injectedName + '-' + change.newValue;
+				}
+			});
+		});
 	},
 
 	remove: () => {

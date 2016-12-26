@@ -4,5 +4,23 @@
   },
   "browserAction": {
     "message": "Прокрутить вверх или вернуться"
+  },
+  "savedMsg": {
+    "message": "Сохранено"
+  },
+  "panelSizeTitle": {
+    "message": "Выберите размер панели:"
+  },
+  "panelSize1": {
+    "message": "Крохотная"
+  },
+  "panelSize1Desc": {
+    "message": "ширина 1 пиксель"
+  },
+  "panelSize2": {
+    "message": "Маленькая"
+  },
+  "panelSize2Desc": {
+    "message": "ширина 10 пикселей"
   }
 }

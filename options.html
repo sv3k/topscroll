@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>TopScroll Options</title>
+	<style>
+		body {
+			padding: 10px; 
+		}
+		p {
+			color: gray;
+			margin-bottom: 0;
+		}
+		.saved {
+			float: right;
+			color: white;
+			background: forestgreen;
+			border: 5px solid forestgreen;
+			border-radius: 5px;
+			opacity: 0;
+			transition: .1s;
+			text-transform: uppercase;
+		}
+		.range-wrapper {
+			width: 200px;
+			margin: 15px auto 10px auto;
+		}
+		.range-labels {
+			margin: 0 7px;
+			font-weight: 700;
+		}
+		.range-input {
+			width: 100%;
+			display: block;
+			margin: 0;
+		}
+		.range-label-1 {
+			float: left;
+			text-align: left;
+		}
+		.range-label-1 > span {
+			margin-left: -50%;
+		}
+		.range-label-2 {
+			float: right;
+			text-align: right;
+		}
+		.range-label-2 > span {
+			margin-right: -50%;
+		}
+		.demo {
+			padding: 10px;
+			transition: 1s;
+		}
+		.demo-1 {
+			border-left: 1px solid blue;
+		}
+		.demo-2 {
+			border-left: 10px solid blue;
+		}
+		.demo-image {
+			width: 400px;
+			box-shadow: 0 0 10px gray;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="saved" class="saved"></div>
+	<div id="panel-size-title"></div>
+	<div class="range-wrapper">
+		<div class="range-labels">
+			<div class="range-label-1"><span id="panel-size-1"></span></div>
+			<div class="range-label-2"><span id="panel-size-2"></span></div>
+		</div>
+		<input id="panel-type" class="range-input" type="range" min=1 max=2 list="panel-options">
+		<datalist id="panel-options">
+			<option>1</option>
+			<option>2</option>
+		</datalist>
+	</div>
+	<div id="demo-text" class="demo"></div>
+	<img class="demo-image" src="lama.jpg">
+	<p>TopScroll on <a href="https://github.com/sv3k/topscroll">GitHub</a></p>
+	<script src="options.js"></script>
+</body>
+</html>
