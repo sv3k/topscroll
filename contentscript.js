@@ -3,26 +3,24 @@ topScroll = {
 	smoothDuration: 150, // Milliseconds
 	injectedName: "topscroll-chrome-extension-bar", // Id value for the injected div
 
-	inject: function() {
+	inject: () => {
 		topScroll.remove(); // Cleanup
 		var body = document.getElementsByTagName('body')[0];
 		var div = document.createElement('div');
-		var barId = document.createAttribute('id');
-		barId.value = topScroll.injectedName;
-		div.setAttributeNode(barId);
+		div.id = topScroll.injectedName;
 		div.onclick = topScroll.scrollUp;
 		div.oncontextmenu = topScroll.scrollDown;
 		body.appendChild(div);
 	},
 
-	remove: function() {
+	remove: () => {
 		var div = document.getElementById(topScroll.injectedName);
 		if (div) {
 			div.remove();
 		}
 	},
 
-	scrollUp: function() {
+	scrollUp: () => {
 		if (topScroll.target.getPosition() === 0) {
 			topScroll.scrollTo(topScroll.lastPosition);
 		} else {
@@ -31,7 +29,7 @@ topScroll = {
 		}
 	},
 
-	scrollDown: function() {
+	scrollDown: () => {
 		var bottomPosition = topScroll.target.getBottomPosition();
 		if (topScroll.target.getPosition() === bottomPosition) {
 			topScroll.scrollTo(topScroll.lastPosition);
@@ -42,7 +40,7 @@ topScroll = {
 		return false; // Prevent context menu appearing
 	},
 
-	scrollTo: function(endY) {
+	scrollTo: endY => {
 		var startY = topScroll.target.getPosition();
 		var distance = endY - startY;
 		var startTime = new Date().getTime();
@@ -61,38 +59,38 @@ topScroll = {
 
 	target: { // Undefined target state by default
 
-		findTarget: function() {
+		findTarget: () => {
 			// Let's define target DOM element for scrolling
 			if (window.innerHeight === document.documentElement.scrollHeight) {
 				// Workaround for unscrollable root element, see #2
 				topScroll.target = {
 					div: topScroll.target.findBiggestDiv(),
-					getPosition: function() {
+					getPosition: () => {
 						return this.div.scrollTop;
 					},
-					getBottomPosition: function() {
+					getBottomPosition: () => {
 						return this.div.scrollHeight - this.div.clientHeight;
 					},
-					setPosition: function(y) {
+					setPosition: y => {
 						this.div.scrollTop = y;
 					}
 				};
 			} else {
 				topScroll.target = {
-					getPosition: function() {
+					getPosition: () => {
 						return window.pageYOffset;
 					},
-					getBottomPosition: function() {
+					getBottomPosition: () => {
 						return document.documentElement.scrollHeight - window.innerHeight;
 					},
-					setPosition: function(y) {
+					setPosition: y => {
 						window.scrollTo(window.pageXOffset, y);
 					}
 				};
 			}
 		},
 
-		findBiggestDiv: function() {
+		findBiggestDiv: () => {
 			var items = document.getElementsByTagName('div');
 			var biggest = { scrollHeight: 0 };
 			for (var i = 0; i < items.length; i++) {
@@ -103,17 +101,17 @@ topScroll = {
 			return biggest;
 		},
 
-		getPosition: function() {
+		getPosition: () => {
 			topScroll.target.findTarget();
 			return topScroll.target.getPosition();
 		},
 
-		getBottomPosition: function() {
+		getBottomPosition: () => {
 			topScroll.target.findTarget();
 			return topScroll.target.getBottomPosition();
 		},
 
-		setPosition: function(y) {
+		setPosition: y => {
 			topScroll.target.findTarget();
 			topScroll.target.setPosition(y);
 		}

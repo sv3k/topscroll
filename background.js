@@ -1,5 +1,5 @@
-chrome.runtime.onInstalled.addListener(function(details) {
-	chrome.tabs.query({}, function(tabs) {
+chrome.runtime.onInstalled.addListener(details => {
+	chrome.tabs.query({}, tabs => {
 		for (var i = 0; i < tabs.length; i++) {
 			chrome.tabs.insertCSS(
 				tabs[i].id,
@@ -13,6 +13,6 @@ chrome.runtime.onInstalled.addListener(function(details) {
 	});
 });
 
-chrome.browserAction.onClicked.addListener(function() {
+chrome.browserAction.onClicked.addListener(() => {
 	chrome.tabs.executeScript({ code: 'document.getElementById("topscroll-chrome-extension-bar").click();' });
 });
