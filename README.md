@@ -7,8 +7,9 @@
 
 There are already a number of Chrome extensions which can add the "scroll to the top" button in all possible places. With TopScroll you don't need to aim any buttons, moving a mouse cursor to the screen edge is much easier and faster.
 
+If you use the browser not in fullscreen mode, you may want to increase clickable area width in extension options.  
+
 This extension does not affect the appearance of web pages.  
-This extension is useless if browser window is not maximized.  
 This extension may not work on some sites with nonstandard layout implementation.
 
 ### How it works
