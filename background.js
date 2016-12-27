@@ -12,7 +12,3 @@ chrome.runtime.onInstalled.addListener(details => {
 		}
 	});
 });
-
-chrome.browserAction.onClicked.addListener(() => {
-	chrome.tabs.executeScript({ code: 'document.getElementById("topscroll-chrome-extension-bar").click();' });
-});
