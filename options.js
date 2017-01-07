@@ -32,3 +32,10 @@ document.getElementById('panel-type').addEventListener('change', () => {
 	saveOptions(); 
 	showOptions();
 });
+
+// Make links work
+window.addEventListener('click', e => {
+	if (e.target.href !== undefined) {
+		chrome.tabs.create({ url:e.target.href })
+	}
+});
