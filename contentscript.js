@@ -101,7 +101,7 @@ topScroll = {
 		},
 
 		findBiggestDiv: function() {
-			var items = document.getElementsByTagName('div');
+			var items = document.querySelectorAll('main,div');
 			var biggest = { scrollHeight: 0 };
 			for (var i = 0; i < items.length; i++) {
 			    if (items[i].scrollHeight > biggest.scrollHeight) {
