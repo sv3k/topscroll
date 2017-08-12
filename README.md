@@ -3,7 +3,10 @@
 ### Description
 ★ Click on the left border of any page for scroll to the top. Just pull the cursor to the left screen edge, click — and you're there!  
 ★ Click again — and you're back where stopped reading.  
+![Scroll up demo](demo-scrollup.gif)  
+
 ★ Or right click for scroll to the bottom.  
+![Scroll up demo](demo-scrolldown.gif)
 
 There are already a number of Chrome extensions which can add the "scroll to the top" button in all possible places. With TopScroll you don't need to aim any buttons, moving a mouse cursor to the screen edge is much easier and faster.
 
