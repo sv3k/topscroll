@@ -12,10 +12,14 @@
 	z-index: 9999999999 !important;
 }
 
-.topscroll-chrome-extension-bar-1 {
+#topscroll-chrome-extension-bar.topscroll-chrome-extension-bar-1 {
+	min-width: 1px !important;
 	width: 1px !important;
+	max-width: 1px !important;
 }
 
-.topscroll-chrome-extension-bar-2 {
+#topscroll-chrome-extension-bar.topscroll-chrome-extension-bar-2 {
+	min-width: 10px !important;
 	width: 10px !important;
+	max-width: 10px !important;
 }
