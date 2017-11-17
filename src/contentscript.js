@@ -7,6 +7,8 @@ topScroll = {
 		topScroll.remove(); // Cleanup
 		chrome.storage.sync.get({ panelType: 1 }, options => {
 			var body = document.getElementsByTagName('body')[0];
+			if (!body) return;
+
 			var div = document.createElement('div');
 			div.id = topScroll.injectedName;
 			div.className = topScroll.injectedName + '-' + options.panelType;
