@@ -8,12 +8,12 @@
 ★ Or right click for scroll to the bottom.  
 ![Scroll up demo](demo-scrolldown.gif)
 
-There are already a number of Chrome extensions which can add the "scroll to the top" button in all possible places. With TopScroll you don't need to aim any buttons, moving a mouse cursor to the screen edge is much easier and faster.
+There are already a number of Chrome extensions which can add the "scroll up" buttons in all possible places cluttering the precious screen space. With TopScroll you won't need such buttons and will be able to do rapid scrolling since moving the mouse to the left and clicking is the easiest thing to do.
 
-If you use the browser not in fullscreen mode, you may want to increase clickable area width in extension options.  
+If you use the browser not in fullscreen mode, you may want to increase clickable area width in the extension options.  
 
-This extension does not affect the appearance of web pages.  
-This extension may not work on some sites with nonstandard layout implementation.
+It does not affect the appearance of web pages.
+It may not work on some sites with tricky page layouts. If you found a popular website where the extension doesn't work — feel free to shoot a bug report here.
 
 ### How it works
 Adds 1-pixel-width invisible `div` to the left border of the page with appropriate JS event handlers. Viola!
