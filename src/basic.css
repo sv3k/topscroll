@@ -1,4 +1,4 @@
-#topscroll-chrome-extension-bar {
+#topscroll-browser-extension-bar {
 	position: fixed !important;
 	top: 0 !important;
 	left: 0 !important;
@@ -12,13 +12,13 @@
 	z-index: 9999999999 !important;
 }
 
-#topscroll-chrome-extension-bar.topscroll-chrome-extension-bar-1 {
+#topscroll-browser-extension-bar.topscroll-browser-extension-bar-1 {
 	min-width: 1px !important;
 	width: 1px !important;
 	max-width: 1px !important;
 }
 
-#topscroll-chrome-extension-bar.topscroll-chrome-extension-bar-2 {
+#topscroll-browser-extension-bar.topscroll-browser-extension-bar-2 {
 	min-width: 10px !important;
 	width: 10px !important;
 	max-width: 10px !important;

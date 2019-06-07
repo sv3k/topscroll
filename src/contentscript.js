@@ -1,64 +1,63 @@
 topScroll = {
 
 	smoothDuration: 150, // Milliseconds
-	injectedName: "topscroll-chrome-extension-bar", // Id value for the injected div
+	injectedId: 'topscroll-browser-extension-bar', // Id value for the injected div
 
 	inject: () => {
 		topScroll.remove(); // Cleanup
 		chrome.storage.sync.get({ panelType: 1 }, options => {
-			var body = document.getElementsByTagName('body')[0];
+			const body = document.getElementsByTagName('body')[0];
 			if (!body) return;
 
-			var div = document.createElement('div');
-			div.id = topScroll.injectedName;
-			div.className = topScroll.injectedName + '-' + options.panelType;
+			const div = document.createElement('div');
+			div.id = topScroll.injectedId;
+			div.className = topScroll.injectedId + '-' + options.panelType;
 			div.onclick = topScroll.scrollUp;
 			div.oncontextmenu = topScroll.scrollDown;
 			body.appendChild(div);
 
-			chrome.storage.onChanged.addListener(changes => {
-				var change = changes['panelType'];
-				if (change.oldValue != change.newValue) {
-					div.className = topScroll.injectedName + '-' + change.newValue;
-				}
-			});
+			chrome.storage.onChanged.addListener(({ panelType }) =>
+				div.className = topScroll.injectedId + '-' + panelType.newValue
+			);
 		});
 	},
 
 	remove: () => {
-		var div = document.getElementById(topScroll.injectedName);
+		const div = document.getElementById(topScroll.injectedId);
 		if (div) {
 			div.remove();
 		}
 	},
 
 	scrollUp: () => {
-		if (topScroll.target.getPosition() === 0) {
+		const currentPosition = topScroll.target.getPosition();
+		if (currentPosition === 0) {
 			topScroll.scrollTo(topScroll.lastPosition);
 		} else {
-			topScroll.lastPosition = topScroll.target.getPosition();
+			topScroll.lastPosition = currentPosition;
 			topScroll.scrollTo(0);
 		}
 	},
 
 	scrollDown: () => {
-		var bottomPosition = topScroll.target.getBottomPosition();
-		if (topScroll.target.getPosition() === bottomPosition) {
+		const currentPosition = topScroll.target.getPosition();
+		const bottomPosition = topScroll.target.getBottomPosition();
+		if (currentPosition === bottomPosition) {
 			topScroll.scrollTo(topScroll.lastPosition);
 		} else {
-			topScroll.lastPosition = topScroll.target.getPosition();
+			topScroll.lastPosition = currentPosition;
 			topScroll.scrollTo(bottomPosition);
 		}
 		return false; // Prevent context menu appearing
 	},
 
 	scrollTo: endY => {
-		var startY = topScroll.target.getPosition();
-		var distance = endY - startY;
-		var startTime = new Date().getTime();
+		const startY = topScroll.target.getPosition();
+		const distance = endY - startY;
+		const startTime = Date.now();
 		(function smoothScroll() {
-			setTimeout(function () {
-				var progress = (new Date().getTime() - startTime) / topScroll.smoothDuration; // Progress 0→1
+			setTimeout(() => {
+				const progress = (Date.now() - startTime) / topScroll.smoothDuration; // Progress 0→1
 				if (progress <= 1) {
 					topScroll.target.setPosition(startY + distance * progress);
 					smoothScroll();
@@ -69,63 +68,41 @@ topScroll = {
 		})();
 	},
 
-	target: { // Undefined target state by default
+	target: {
+		// Undefined target node until first click to allow some time for page loading
+		getPosition: () => topScroll.target.findTarget().getPosition(),
+		getBottomPosition: () => topScroll.target.findTarget().getBottomPosition(),
+		setPosition: y => topScroll.target.findTarget().setPosition(y),
 
-		findTarget: function() {
-			// Let's define target DOM element for scrolling
+		findTarget: () => {
+			let newTarget; // Let's define target DOM element for scrolling
 			if (window.innerHeight === document.documentElement.scrollHeight) {
 				// Workaround for unscrollable root element, see #2
-				topScroll.target = {
-					div: topScroll.target.findBiggestDiv(),
-					getPosition: function() {
-						return this.div.scrollTop;
-					},
-					getBottomPosition: function() {
-						return this.div.scrollHeight - this.div.clientHeight;
-					},
-					setPosition: function(y) {
-						this.div.scrollTop = y;
-					}
+				topScroll.targetNode = topScroll.target.findTallestNode();
+				newTarget = {
+					getPosition: () => topScroll.targetNode.scrollTop,
+					getBottomPosition: () => topScroll.targetNode.scrollHeight - topScroll.targetNode.clientHeight,
+					setPosition: y => topScroll.targetNode.scrollTop = y
 				};
 			} else {
-				topScroll.target = {
-					getPosition: function() {
-						return window.pageYOffset;
-					},
-					getBottomPosition: function() {
-						return document.documentElement.scrollHeight - window.innerHeight;
-					},
-					setPosition: function(y) {
-						window.scrollTo(window.pageXOffset, y);
-					}
+				newTarget = {
+					getPosition: () => window.pageYOffset,
+					getBottomPosition: () => document.documentElement.scrollHeight - window.innerHeight,
+					setPosition: y => window.scrollTo(window.pageXOffset, y)
 				};
 			}
+			return topScroll.target = newTarget;
 		},
 
-		findBiggestDiv: function() {
-			var items = document.querySelectorAll('main,div');
-			var biggest = { scrollHeight: 0 };
-			for (var i = 0; i < items.length; i++) {
-			    if (items[i].scrollHeight > biggest.scrollHeight) {
-			    	biggest = items[i];
+		findTallestNode: () => {
+			const items = document.querySelectorAll('main,div');
+			let tallest = { scrollHeight: 0 };
+			for (let i = 0; i < items.length; i++) {
+			    if (items[i].scrollHeight > tallest.scrollHeight) {
+			    	tallest = items[i];
 			    }
 			}
-			return biggest;
-		},
-
-		getPosition: function() {
-			topScroll.target.findTarget();
-			return topScroll.target.getPosition();
-		},
-
-		getBottomPosition: function() {
-			topScroll.target.findTarget();
-			return topScroll.target.getBottomPosition();
-		},
-
-		setPosition: function(y) {
-			topScroll.target.findTarget();
-			topScroll.target.setPosition(y);
+			return tallest;
 		}
 	}
 };
