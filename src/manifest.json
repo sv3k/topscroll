@@ -5,11 +5,12 @@
   "icons": { "48": "icon48.png", "128": "icon128.png" },
   "default_locale": "en",
   "version": "1.8.5",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "offline_enabled": true,
   "author": "Anton Gorbunov",
   "homepage_url": "https://github.com/sv3k/topscroll",
-  "permissions": ["<all_urls>", "storage"],
+  "permissions": ["storage", "scripting"],
+  "host_permissions": ["<all_urls>"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -18,15 +19,13 @@
     }
   ],
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "service_worker": "installer.js"
   },
-  "browser_action": {
+  "action": {
     "default_title": "__MSG_browserAction__",
     "default_popup": "options.html"
   },
   "options_ui": {
-    "page": "options.html",
-    "chrome_style": true
+    "page": "options.html"
   }
 }
