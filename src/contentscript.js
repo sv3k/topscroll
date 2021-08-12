@@ -42,7 +42,9 @@ topScroll = {
 	scrollDown: () => {
 		const currentPosition = topScroll.target.getPosition();
 		const bottomPosition = topScroll.target.getBottomPosition();
-		if (currentPosition === bottomPosition) {
+		// Current position is often a non-round number:
+		const isOnBottom = currentPosition - bottomPosition < 1 && bottomPosition - currentPosition < 1;
+		if (isOnBottom) {
 			topScroll.scrollTo(topScroll.lastPosition);
 		} else {
 			topScroll.lastPosition = currentPosition;
