@@ -1,4 +1,4 @@
-# TopScroll — Chrome extension
+# TopScroll — browser extension
 
 ### Description
 ★ Click on the left border of any page for scroll to the top. Just pull the cursor to the left screen edge, click — and you're there!  
@@ -8,7 +8,7 @@
 ★ Or right click for scroll to the bottom.  
 ![Scroll up demo](demo-scrolldown.gif)
 
-There are already a number of Chrome extensions which can add the "scroll up" buttons in all possible places cluttering the precious screen space. With TopScroll you won't need such buttons and will be able to do rapid scrolling since moving the mouse to the left and clicking is the easiest thing to do.  
+There are already a number of browser extensions which can add the "scroll up" buttons in all possible places cluttering the precious screen space. With TopScroll you won't need such buttons and will be able to do rapid scrolling since moving the mouse to the left and clicking is the easiest thing to do.  
 
 If you use the browser not in fullscreen mode, you may want to increase clickable area width in the extension options.  
 
@@ -19,10 +19,12 @@ It may not work on some sites with tricky page layouts. If you found a popular w
 Adds 1-pixel-width invisible `div` to the left border of the page with appropriate JS event handlers. Viola!
 
 ### Compatibility
-[All Chromium-based browsers](https://en.wikipedia.org/wiki/Chromium_(web_browser)#Other_browsers_based_on_Chromium), including Google Chrome, Opera, Yandex Browser and Vivaldi.
+- [All Chromium-based browsers](https://en.wikipedia.org/wiki/Chromium_(web_browser)#Other_browsers_based_on_Chromium), including Google Chrome, Opera, Yandex Browser and Vivaldi.
+- Mozilla Firefox.
 
 ### Install
-[Chrome web store](https://chrome.google.com/webstore/detail/topscroll/hnninpkmflibadgihijdmlilikhdgajj)
+[Chrome web store](https://chrome.google.com/webstore/detail/topscroll/hnninpkmflibadgihijdmlilikhdgajj)  
+[Firefox add-ons](https://addons.mozilla.org/en-US/firefox/addon/top-scroll/)
 
 ### License
 This project is licensed under the terms of the GNU v2 license.
