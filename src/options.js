@@ -1,6 +1,8 @@
+const DEFAULT_CONFIG = { panelType: 1 };
+
 function saveOptions() {
-	var type = document.getElementById('panel-type').value;
-	var status = document.getElementById('saved');
+	const type = document.getElementById('panel-type').value;
+	const status = document.getElementById('saved');
 	chrome.storage.sync.set({
 		panelType: type
 	}, () => {
@@ -13,11 +15,11 @@ function saveOptions() {
 }
 
 function showOptions() {
-	chrome.storage.sync.get({ panelType: 1 }, options => {
-		document.getElementById('panel-type').value = options.panelType;
-		var demo = document.getElementById('demo-text');
-		demo.className = 'demo demo-' + options.panelType;
-		demo.textContent = '← ' + chrome.i18n.getMessage('panelSize' + options.panelType + 'Desc');
+	chrome.storage.sync.get(DEFAULT_CONFIG, (config = DEFAULT_CONFIG) => {
+		document.getElementById('panel-type').value = config.panelType;
+		const demo = document.getElementById('demo-text');
+		demo.className = `demo demo-${config.panelType}`;
+		demo.textContent = '← ' + chrome.i18n.getMessage(`panelSize${config.panelType}Desc`);
 	});
 }
 
@@ -36,6 +38,6 @@ document.getElementById('panel-type').addEventListener('change', () => {
 // Make links work
 window.addEventListener('click', e => {
 	if (e.target.href !== undefined) {
-		chrome.tabs.create({ url:e.target.href })
+		chrome.tabs.create({ url: e.target.href })
 	}
 });
